@@ -18,17 +18,29 @@ INCLUDES	= libftprintf.h
 
 CFLAGS	= -Wall -Wextra -Werror
 
+LIBFT_DIR	= ./libft
+
+LIBFT		= $(LIBFT_DIR)/libft.a
+
 .c.o:
 	cc ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCLUDES}
 
-${NAME}: ${OBJECTS}
+${NAME}: ${OBJECTS} $(LIBFT)
+	make -C $(LIBFT_DIR)
+	cp $(LIBFT) $(NAME)
 	ar rc ${NAME} ${OBJECTS}
 	ranlib ${NAME}
+	chmod +x $(NAME)
 
-all: ${NAME}
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+	cp $(LIBFT) $(NAME)
+
+all: ${NAME} $(LIBFT)
 
 clean:
 	rm -f ${OBJECTS}
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -f ${NAME}
