@@ -26,8 +26,6 @@ LIBFT		= $(LIBFT_DIR)/libft.a
 	cc ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCLUDES}
 
 ${NAME}: ${OBJECTS} $(LIBFT)
-	make -C $(LIBFT_DIR)
-	cp $(LIBFT) $(NAME)
 	ar rc ${NAME} ${OBJECTS}
 	ranlib ${NAME}
 	chmod +x $(NAME)
@@ -36,7 +34,7 @@ $(LIBFT):
 	make -C $(LIBFT_DIR)
 	cp $(LIBFT) $(NAME)
 
-all: ${NAME} $(LIBFT)
+all: ${NAME}
 
 clean:
 	rm -f ${OBJECTS}
