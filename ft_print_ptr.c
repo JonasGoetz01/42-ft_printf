@@ -6,12 +6,13 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/11 10:47:08 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/11 13:35:35 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/* int	ft_print_ptr(unsigned long long n)
+int	ft_print_ptr(unsigned long long n)
 {
-} */
+	return ((int)n);
+}

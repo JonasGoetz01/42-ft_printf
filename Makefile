@@ -1,8 +1,6 @@
 NAME	= libftprintf.a
 
 SOURCES	= ft_printf.c \
-	ft_print_char.c \
-	ft_print_str.c \
 	ft_print_ptr.c \
 	ft_print_dec.c \
 	ft_print_int.c \
@@ -28,7 +26,6 @@ LIBFT		= $(LIBFT_DIR)/libft.a
 ${NAME}: ${OBJECTS} $(LIBFT)
 	ar rc ${NAME} ${OBJECTS}
 	ranlib ${NAME}
-	chmod +x $(NAME)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)

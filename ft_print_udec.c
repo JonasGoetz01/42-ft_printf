@@ -6,12 +6,13 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/11 10:47:18 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/11 13:38:04 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/* void	ft_print_udec(int n)
+int	ft_print_udec(int n)
 {
-} */
+	return (n);
+}

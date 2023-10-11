@@ -6,7 +6,7 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/11 10:49:29 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/11 13:38:29 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int		ft_printf(const char *str, ...);
-int		ft_print_uhex(int n);
-int		ft_print_udec(int n);
-int		ft_print_ptr(unsigned long long n);
-void	ft_print_percent(void);
-int		ft_print_lhex(int n);
-void	ft_print_int(int n);
-void	ft_print_dec(int n);
+int	ft_printf(const char *str, ...);
+int	ft_print_uhex(int n);
+int	ft_print_udec(int n);
+int	ft_print_ptr(unsigned long long n);
+int	ft_print_percent(void);
+int	ft_print_lhex(int n);
+int	ft_print_int(int n);
+int	ft_print_dec(int n);
 
 #endif
