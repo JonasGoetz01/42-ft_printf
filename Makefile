@@ -1,4 +1,4 @@
-NAME	= libftprintf.a
+NAME	= ft_printf.a
 
 SOURCES	= ft_printf.c \
 	ft_print_ptr.c \
@@ -12,7 +12,7 @@ SOURCES	= ft_printf.c \
 
 OBJECTS	= ${SOURCES:.c=.o}
 
-INCLUDES	= libftprintf.h
+INCLUDES	= ft_printf.h
 
 CFLAGS	= -Wall -Wextra -Werror
 
@@ -24,6 +24,7 @@ LIBFT		= $(LIBFT_DIR)/libft.a
 	cc ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCLUDES}
 
 ${NAME}: ${OBJECTS} $(LIBFT)
+	cp $(LIBFT) $(NAME)
 	ar rc ${NAME} ${OBJECTS}
 	ranlib ${NAME}
 
@@ -34,10 +35,12 @@ $(LIBFT):
 all: ${NAME}
 
 clean:
+	make -C $(LIBFT_DIR) clean
 	rm -f ${OBJECTS}
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean
+	make -C $(LIBFT_DIR) fclean
 	rm -f ${NAME}
 
 re: fclean all

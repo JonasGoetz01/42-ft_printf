@@ -6,13 +6,14 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/11 13:37:50 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/11 13:57:06 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_print_int(int n)
 {
-	return (n);
+	ft_putstr_fd(ft_itoa(n), 1);
+	return (ft_strlen(ft_itoa(n)));
 }

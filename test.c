@@ -6,14 +6,14 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:22:44 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/11 13:40:40 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/11 13:58:40 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	main(void)
 {
-	ft_printf("Hallo %c\n", 'c');
+	ft_printf("Hallo %c %i %i\n", 'c', 123, -123);
 	return (0);
 }
