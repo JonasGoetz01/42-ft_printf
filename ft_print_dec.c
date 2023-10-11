@@ -6,12 +6,12 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/11 00:46:16 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/11 10:07:17 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/* void	ft_print_dec(char *str)
+/* int	ft_print_dec(char *str)
 {
 } */
