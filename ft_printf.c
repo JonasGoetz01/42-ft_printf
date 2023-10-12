@@ -6,7 +6,7 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/12 15:06:06 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/12 17:36:26 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_switch_format(va_list args, const char c, int *ret)
 	{
 		str = va_arg(args, char *);
 		if (str == NULL)
-			return ;
+			str = "(null)";
 		ft_putstr_fd(str, 1);
 		*ret += (ft_strlen(str));
 		if (is_dynamic_memory(str))
@@ -43,7 +43,7 @@ static void	ft_switch_format(va_list args, const char c, int *ret)
 	{
 		ft_putchar_fd('0', 1);
 		ft_putchar_fd('x', 1);
-		*ret += (ft_print_hex(va_arg(args, unsigned long), 'x')) + 2;
+		*ret += (ft_print_ptr(va_arg(args, unsigned long), 'x')) + 2;
 	}
 	else if (c == 'd' || c == 'i')
 	{

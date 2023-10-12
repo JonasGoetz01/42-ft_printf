@@ -2,6 +2,7 @@ NAME	= libftprintf.a
 
 SOURCES	= ft_printf.c \
 	ft_print_dec.c \
+	ft_print_ptr.c \
 	ft_print_int.c \
 	ft_print_udec.c \
 	ft_print_hex.c \

@@ -6,7 +6,7 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:22:44 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/12 16:07:12 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/12 16:29:31 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 
 int	main(void)
 {
-	ft_printf("%i\n", ft_printf("Hallo\n"));
+	/* ft_printf("%i\n", ft_printf("Hallo\n"));
 	ft_printf("\n");
 	ft_printf("%i\n", ft_printf("%i\n", 123));
 	ft_printf("\n");
-	/* ft_printf("%i\n", ft_printf("Hallo %% %c %i %i %s\n", 'c', 123, -123,
-			"Welt")); */
 	ft_printf("%i\n", ft_printf("Hallo %%\n"));
 	ft_printf("%i\n", ft_printf("Hallo %c\n", 'c'));
 	ft_printf("%i\n", ft_printf("Hallo %i\n", 123));
@@ -35,14 +33,17 @@ int	main(void)
 	ft_printf("%i\n", ft_printf("Hallo %x\n", -255));
 	ft_printf("%i\n", ft_printf("Hallo %X\n", 255));
 	ft_printf("%i\n", ft_printf("Hallo %X\n", -255));
-	ft_printf("%i\n", ft_printf("Hallo %p\n", LONG_MIN));
-	printf("%i\n", printf("Hallo %p\n", (void *)LONG_MIN));
-	ft_printf("%i\n", ft_printf("Hallo %p\n", LONG_MAX));
-	printf("%i\n", printf("Hallo %p\n", (void *)LONG_MAX));
-	ft_printf("%i\n", ft_printf("Hallo %p\n", ULONG_MAX));
-	printf("%i\n", printf("Hallo %p\n", (void *)ULONG_MAX));
-	ft_printf("%i\n", ft_printf("Hallo %p\n", -ULONG_MAX));
-	printf("%i\n", printf("Hallo %p\n", (void *)-ULONG_MAX));
+
+	ft_printf("------\n"); */
+
+	/* ft_printf("%i\n", ft_printf("my %p\n", LONG_MIN));
+	printf("%i\n", printf("or %p\n", (void *)LONG_MIN)); */
+	/* ft_printf("%i\n", ft_printf("my %p\n", LONG_MAX));
+	printf("%i\n", printf("or %p\n", (void *)LONG_MAX)); */
+	/* ft_printf("%i\n", ft_printf("my %p\n", ULONG_MAX));
+	printf("%i\n", printf("or %p\n", (void *)ULONG_MAX));*/
+	ft_printf("%i\n", ft_printf("my %p\n", -ULONG_MAX));
+	printf("%i\n", printf("or %p\n", (void *)-ULONG_MAX));
 
 	/* printf("%i\n", printf("Hallo\n"));
 	printf("\n");
