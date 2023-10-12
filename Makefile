@@ -1,12 +1,10 @@
-NAME	= ft_printf.a
+NAME	= libftprintf.a
 
 SOURCES	= ft_printf.c \
-	ft_print_ptr.c \
 	ft_print_dec.c \
 	ft_print_int.c \
 	ft_print_udec.c \
-	ft_print_lhex.c \
-	ft_print_uhex.c \
+	ft_print_hex.c \
 	ft_print_percent.c
 
 
