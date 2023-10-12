@@ -6,7 +6,7 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/12 10:21:54 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/12 17:54:55 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	get_num_udigits(unsigned int n)
 
 void	ft_print_udec(unsigned int n)
 {
-	char digit;
+	char	digit;
 
 	if (n > 9)
 		ft_print_udec(n / 10);

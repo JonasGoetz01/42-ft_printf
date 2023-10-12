@@ -6,13 +6,13 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:22:44 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/12 16:29:31 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/12 18:48:52 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 #include <limits.h>
+#include <stdio.h>
 
 int	main(void)
 {
@@ -42,8 +42,8 @@ int	main(void)
 	printf("%i\n", printf("or %p\n", (void *)LONG_MAX)); */
 	/* ft_printf("%i\n", ft_printf("my %p\n", ULONG_MAX));
 	printf("%i\n", printf("or %p\n", (void *)ULONG_MAX));*/
-	ft_printf("%i\n", ft_printf("my %p\n", -ULONG_MAX));
-	printf("%i\n", printf("or %p\n", (void *)-ULONG_MAX));
+	/* ft_printf("%i\n", ft_printf("my %p\n", -ULONG_MAX));
+	printf("%i\n", printf("or %p\n", (void *)-ULONG_MAX)); */
 
 	/* printf("%i\n", printf("Hallo\n"));
 	printf("\n");
@@ -60,5 +60,14 @@ int	main(void)
 	printf("%i\n", printf("Hallo %x\n", -255));
 	printf("%i\n", printf("Hallo %X\n", 255));
 	printf("%i\n", printf("Hallo %X\n", -255)); */
+
+	ft_printf("%i\n", ft_printf("\001\002\007\v\010\f\r\n"));
+	printf("%i\n", printf("\001\002\007\v\010\f\r\n"));
+	test_printf_noarg("%%");
+	test_printf_noarg(" %%");
+	test_printf_noarg("%%c");
+	test_printf_noarg("%%%%%%");
+	test_printf("%%%c", 'x');
+
 	return (0);
 }

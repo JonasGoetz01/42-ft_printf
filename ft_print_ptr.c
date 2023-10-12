@@ -6,75 +6,54 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/12 17:44:23 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/12 17:53:08 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	num_hex_digits(unsigned long n)
+int	ft_ptr_len(uintptr_t n)
 {
-	int	i;
+	int	len;
 
-	i = 0;
+	len = 0;
 	while (n != 0)
 	{
-		i++;
+		len++;
 		n = n / 16;
 	}
-	return (i);
+	return (len);
 }
 
-static int	ft_hex(unsigned long n, char format)
+void	ft_hex(uintptr_t n)
 {
-	if (n == 0)
-		return (write(1, "0", 1));
+	if (n >= 16)
+	{
+		ft_hex(n / 16);
+		ft_hex(n % 16);
+	}
 	else
 	{
-		if (n >= 16)
-		{
-			ft_print_hex(n / 16, format);
-			ft_print_hex(n % 16, format);
-		}
+		if (n < 10)
+			ft_putchar_fd((n + '0'), 1);
 		else
-		{
-			if (n < 10)
-				ft_putchar_fd((n + '0'), 1);
-			else
-			{
-				if (format == 'x')
-					ft_putchar_fd((n - 10 + 'a'), 1);
-				if (format == 'X')
-					ft_putchar_fd((n - 10 + 'A'), 1);
-			}
-		}
+			ft_putchar_fd((n - 10 + 'a'), 1);
 	}
-	return (num_hex_digits(n));
 }
 
-int	ft_print_ptr(unsigned long n, char format)
+int	ft_print_ptr(unsigned long long ptr)
 {
-	if (n == 0)
-		return (write(1, "0", 1));
+	int	ret;
+
+	ret = 0;
+	write(1, "0x", 2);
+	ret += 2;
+	if (ptr == 0)
+		ret += write(1, "0", 1);
 	else
 	{
-		if (n >= 16)
-		{
-			ft_hex(n / 16, format);
-			ft_hex(n % 16, format);
-		}
-		else
-		{
-			if (n < 10)
-				ft_putchar_fd((n + '0'), 1);
-			else
-			{
-				if (format == 'x')
-					ft_putchar_fd((n - 10 + 'a'), 1);
-				if (format == 'X')
-					ft_putchar_fd((n - 10 + 'A'), 1);
-			}
-		}
+		ft_hex(ptr);
+		ret += ft_ptr_len(ptr);
 	}
-	return (num_hex_digits(n));
+	return (ret);
 }
