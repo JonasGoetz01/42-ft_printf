@@ -6,7 +6,7 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/16 14:43:55 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/16 16:11:59 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,44 +25,35 @@ static int	num_hex_digits(unsigned int n)
 	return (i);
 }
 
+static int	write_char(char c)
+{
+	return (write(1, &c, 1));
+}
+
 int	ft_print_hex(unsigned int n, char format)
 {
 	char	c;
 
 	if (n == 0)
-		return (write(1, "0", 1));
+		return (write_char('0'));
 	else
 	{
 		if (n >= 16)
 		{
-			if (ft_print_hex(n / 16, format) == -1)
-				return (-1);
-			if (ft_print_hex(n % 16, format) == -1)
+			if (ft_print_hex(n / 16, format) == -1 || ft_print_hex(n % 16,
+					format) == -1)
 				return (-1);
 		}
 		else
 		{
 			if (n < 10)
-			{
-				c = (n + '0');
-				if (write(1, &c, 1) == -1)
-					return (-1);
-			}
+				c = n + '0';
+			else if (format == 'x')
+				c = n - 10 + 'a';
 			else
-			{
-				if (format == 'x')
-				{
-					c = (n - 10 + 'a');
-					if (write(1, &c, 1) == -1)
-						return (-1);
-				}
-				if (format == 'X')
-				{
-					c = (n - 10 + 'A');
-					if (write(1, &c, 1) == -1)
-						return (-1);
-				}
-			}
+				c = n - 10 + 'A';
+			if (write_char(c) == -1)
+				return (-1);
 		}
 	}
 	return (num_hex_digits(n));

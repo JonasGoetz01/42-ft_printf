@@ -25,5 +25,8 @@ int	get_num_udigits(unsigned int n);
 int	ft_print_hex(unsigned int n, char format);
 int	ft_print_ptr(unsigned long long ptr);
 int	ft_putstr(char *str);
+int	ft_print_char(int c);
+int	put_unsigned_nbr(unsigned int num);
+int	put_nbr(int num);
 
 #endif

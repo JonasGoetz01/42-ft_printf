@@ -6,7 +6,7 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/16 10:34:13 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/16 16:55:18 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,35 @@ int	ft_print_udec(unsigned int n)
 	if (write(1, &digit, 1) == -1)
 		return (-1);
 	return (0);
+}
+
+static int	ft_put_unsigned_nbr(unsigned int n)
+{
+	char	c;
+	int		len;
+	int		i;
+
+	len = 0;
+	if (n >= 10)
+	{
+		i = ft_put_unsigned_nbr(n / 10);
+		if (i == -1)
+			return (-1);
+		len += i;
+	}
+	c = n % 10 + '0';
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	len++;
+	return (len);
+}
+
+int	put_unsigned_nbr(unsigned int num)
+{
+	int	len;
+
+	len = ft_put_unsigned_nbr(num);
+	if (len == -1)
+		return (-1);
+	return (len);
 }
