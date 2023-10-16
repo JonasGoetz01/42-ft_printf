@@ -6,7 +6,7 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/16 16:52:27 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/16 17:12:43 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,51 @@ static int	ft_handle_format(va_list args, const char c)
 		return (-1);
 }
 
+static int	printf_helper(const char *str, int *i, va_list args)
+{
+	int	l;
+
+	l = 0;
+	if (str[*i] == '%')
+	{
+		l = ft_handle_format(args, str[(*i) + 1]);
+		if (l == -1)
+			return (-1);
+		(*i)++;
+	}
+	else
+	{
+		if (write(1, &str[*i], 1) == -1)
+			return (-1);
+		l = 1;
+	}
+	(*i)++;
+	return (l);
+}
+
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		ret;
 	int		i;
 	int		len;
+	int		l;
 
 	ret = 0;
 	i = 0;
+	len = 0;
+	l = 0;
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%')
+		l = printf_helper(str, &i, args);
+		if (l == -1)
 		{
-			len = ft_handle_format(args, str[i + 1]);
-			if (len == -1)
-				return (-1);
-			ret += len;
-			i++;
+			va_end(args);
+			return (-1);
 		}
-		else
-		{
-			if (ft_print_char(str[i]) == -1)
-				return (-1);
-			ret += 1;
-		}
-		i++;
+		len += l;
 	}
 	va_end(args);
-	return (ret);
+	return (len);
 }
