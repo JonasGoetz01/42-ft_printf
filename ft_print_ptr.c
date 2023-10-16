@@ -6,7 +6,7 @@
 /*   By: jgotz <jgotz@student.42heilbronn.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:50:26 by jgotz             #+#    #+#             */
-/*   Updated: 2023/10/12 17:53:08 by jgotz            ###   ########.fr       */
+/*   Updated: 2023/10/16 12:27:30 by jgotz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ int	ft_ptr_len(uintptr_t n)
 	return (len);
 }
 
-void	ft_hex(uintptr_t n)
+int	ft_hex(uintptr_t n)
 {
+	char	c;
+
 	if (n >= 16)
 	{
 		ft_hex(n / 16);
@@ -35,10 +37,19 @@ void	ft_hex(uintptr_t n)
 	else
 	{
 		if (n < 10)
-			ft_putchar_fd((n + '0'), 1);
+		{
+			c = (n + '0');
+			if (write(1, &c, 1) == -1)
+				return (-1);
+		}
 		else
-			ft_putchar_fd((n - 10 + 'a'), 1);
+		{
+			c = (n - 10 + 'a');
+			if (write(1, &c, 1) == -1)
+				return (-1);
+		}
 	}
+	return (0);
 }
 
 int	ft_print_ptr(unsigned long long ptr)
@@ -46,13 +57,19 @@ int	ft_print_ptr(unsigned long long ptr)
 	int	ret;
 
 	ret = 0;
-	write(1, "0x", 2);
+	if (write(1, "0x", 2) == -1)
+		return (-1);
 	ret += 2;
 	if (ptr == 0)
-		ret += write(1, "0", 1);
+	{
+		if (write(1, "0", 1) == -1)
+			return (-1);
+		ret += 1;
+	}
 	else
 	{
-		ft_hex(ptr);
+		if (ft_hex(ptr) == -1)
+			return (-1);
 		ret += ft_ptr_len(ptr);
 	}
 	return (ret);

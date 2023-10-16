@@ -5,7 +5,8 @@ SOURCES	= ft_printf.c \
 	ft_print_int.c \
 	ft_print_udec.c \
 	ft_print_hex.c \
-	ft_print_percent.c
+	ft_print_percent.c \
+	ft_putstr.c
 
 
 OBJECTS	= ${SOURCES:.c=.o}
